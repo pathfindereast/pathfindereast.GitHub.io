@@ -1,37 +1,11 @@
-## Welcome to GitHub Pages
+### 在Windows下编译Freecad
 
-You can use the [editor on GitHub](https://github.com/pathfindereast/pathfindereast.GitHub.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
+#### 一、环境准备
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/pathfindereast/pathfindereast.GitHub.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+| 名称                        | 简介                                                         | 备注                                                         |
+| --------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Win10                       |                                                              |                                                              |
+| VS2017                      |                                                              | 谨慎使用其他版本（很可能会出问题）                           |
+| cmake3.18                   |                                                              | 或者更高版本                                                 |
+| FreeCADLibs_12.1.4_x64_VC15 | FreeCAD LibPack Version 12.1.4 debug/release <br />Visual Studio 2017<br />OpenSSL 3.0.0<br />Curl<br />Qt 5.12.1<br />PySide2 build against Qt 5.12.1<br />Coin3D 4.0<br />Pivy<br />Python 3.6.8<br />OpenCascade 7.3<br />Boost 1.67 (including the debug files build against python_d.exe) | includes everything need to compile FreeCAD debug/release version<br />下载地址：https://github.com/apeltauer/FreeCAD/releases/tag/LibPack_12.1.4<br />注意：这里VC15对应的是VS2017 |
+| 版本管理软件                | TortoiseGit-2.12.0.0-64bit（推荐）                           | 安装TortoiseGit-2.12.0.0-64bit.msi<br />安装TortoiseGit-LanguagePack-2.12.0.0-64bit-zh_CN.msi |
