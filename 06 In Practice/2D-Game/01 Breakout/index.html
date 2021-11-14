@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://learnopengl-cn.github.io/06%20In%20Practice/2D-Game/01%20Breakout/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>Breakout - LearnOpenGL CN</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/color-brewer.min.css">
+        <link href="../../../css/style.css" rel="stylesheet">
+        <link href="../../../css/admonition_fix.css" rel="stylesheet">
+
+        <script src="../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">LearnOpenGL CN</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">主页</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">目录 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../intro/" class="dropdown-item">简介</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">入门</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../01%20Getting%20started/01%20OpenGL/" class="dropdown-item">OpenGL</a>
+</li>
+            
+<li>
+    <a href="../../../01%20Getting%20started/02%20Creating%20a%20window/" class="dropdown-item">创建窗口</a>
+</li>
+            
+<li>
+    <a href="../../../01%20Getting%20started/03%20Hello%20Window/" class="dropdown-item">你好，窗口</a>
+</li>
+            
+<li>
+    <a href="../../../01%20Getting%20started/04%20Hello%20Triangle/" class="dropdown-item">你好，三角形</a>
+</li>
+            
+<li>
+    <a href="../../../01%20Getting%20started/05%20Shaders/" class="dropdown-item">着色器</a>
+</li>
+            
+<li>
+    <a href="../../../01%20Getting%20started/06%20Textures/" class="dropdown-item">纹理</a>
+</li>
+            
+<li>
+    <a href="../../../01%20Getting%20started/07%20Transformations/" class="dropdown-item">变换</a>
+</li>
+            
+<li>
+    <a href="../../../01%20Getting%20started/08%20Coordinate%20Systems/" class="dropdown-item">坐标系统</a>
+</li>
+            
+<li>
+    <a href="../../../01%20Getting%20started/09%20Camera/" class="dropdown-item">摄像机</a>
+</li>
+            
+<li>
+    <a href="../../../01%20Getting%20started/10%20Review/" class="dropdown-item">复习</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">光照</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../02%20Lighting/01%20Colors/" class="dropdown-item">颜色</a>
+</li>
+            
+<li>
+    <a href="../../../02%20Lighting/02%20Basic%20Lighting/" class="dropdown-item">基础光照</a>
+</li>
+            
+<li>
+    <a href="../../../02%20Lighting/03%20Materials/" class="dropdown-item">材质</a>
+</li>
+            
+<li>
+    <a href="../../../02%20Lighting/04%20Lighting%20maps/" class="dropdown-item">光照贴图</a>
+</li>
+            
+<li>
+    <a href="../../../02%20Lighting/05%20Light%20casters/" class="dropdown-item">投光物</a>
+</li>
+            
+<li>
+    <a href="../../../02%20Lighting/06%20Multiple%20lights/" class="dropdown-item">多光源</a>
+</li>
+            
+<li>
+    <a href="../../../02%20Lighting/07%20Review/" class="dropdown-item">复习</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">模型加载</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../03%20Model%20Loading/01%20Assimp/" class="dropdown-item">Assimp</a>
+</li>
+            
+<li>
+    <a href="../../../03%20Model%20Loading/02%20Mesh/" class="dropdown-item">网格</a>
+</li>
+            
+<li>
+    <a href="../../../03%20Model%20Loading/03%20Model/" class="dropdown-item">模型</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">高级OpenGL</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../04%20Advanced%20OpenGL/01%20Depth%20testing/" class="dropdown-item">深度测试</a>
+</li>
+            
+<li>
+    <a href="../../../04%20Advanced%20OpenGL/02%20Stencil%20testing/" class="dropdown-item">模板测试</a>
+</li>
+            
+<li>
+    <a href="../../../04%20Advanced%20OpenGL/03%20Blending/" class="dropdown-item">混合</a>
+</li>
+            
+<li>
+    <a href="../../../04%20Advanced%20OpenGL/04%20Face%20culling/" class="dropdown-item">面剔除</a>
+</li>
+            
+<li>
+    <a href="../../../04%20Advanced%20OpenGL/05%20Framebuffers/" class="dropdown-item">帧缓冲</a>
+</li>
+            
+<li>
+    <a href="../../../04%20Advanced%20OpenGL/06%20Cubemaps/" class="dropdown-item">立方体贴图</a>
+</li>
+            
+<li>
+    <a href="../../../04%20Advanced%20OpenGL/07%20Advanced%20Data/" class="dropdown-item">高级数据</a>
+</li>
+            
+<li>
+    <a href="../../../04%20Advanced%20OpenGL/08%20Advanced%20GLSL/" class="dropdown-item">高级GLSL</a>
+</li>
+            
+<li>
+    <a href="../../../04%20Advanced%20OpenGL/09%20Geometry%20Shader/" class="dropdown-item">几何着色器</a>
+</li>
+            
+<li>
+    <a href="../../../04%20Advanced%20OpenGL/10%20Instancing/" class="dropdown-item">实例化</a>
+</li>
+            
+<li>
+    <a href="../../../04%20Advanced%20OpenGL/11%20Anti%20Aliasing/" class="dropdown-item">抗锯齿</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">高级光照</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../05%20Advanced%20Lighting/01%20Advanced%20Lighting/" class="dropdown-item">高级光照</a>
+</li>
+            
+<li>
+    <a href="../../../05%20Advanced%20Lighting/02%20Gamma%20Correction/" class="dropdown-item">Gamma校正</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">阴影</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../05%20Advanced%20Lighting/03%20Shadows/01%20Shadow%20Mapping/" class="dropdown-item">阴影映射</a>
+</li>
+            
+<li>
+    <a href="../../../05%20Advanced%20Lighting/03%20Shadows/02%20Point%20Shadows/" class="dropdown-item">点阴影</a>
+</li>
+            
+<li>
+    <a href="../../../05%20Advanced%20Lighting/03%20Shadows/03%20CSM/" class="dropdown-item">CSM</a>
+</li>
+    </ul>
+  </li>
+            
+<li>
+    <a href="../../../05%20Advanced%20Lighting/04%20Normal%20Mapping/" class="dropdown-item">法线贴图</a>
+</li>
+            
+<li>
+    <a href="../../../05%20Advanced%20Lighting/05%20Parallax%20Mapping/" class="dropdown-item">视差贴图</a>
+</li>
+            
+<li>
+    <a href="../../../05%20Advanced%20Lighting/06%20HDR/" class="dropdown-item">HDR</a>
+</li>
+            
+<li>
+    <a href="../../../05%20Advanced%20Lighting/07%20Bloom/" class="dropdown-item">泛光</a>
+</li>
+            
+<li>
+    <a href="../../../05%20Advanced%20Lighting/08%20Deferred%20Shading/" class="dropdown-item">延迟着色法</a>
+</li>
+            
+<li>
+    <a href="../../../05%20Advanced%20Lighting/09%20SSAO/" class="dropdown-item">SSAO</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">PBR</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../07%20PBR/01%20Theory/" class="dropdown-item">理论</a>
+</li>
+            
+<li>
+    <a href="../../../07%20PBR/02%20Lighting/" class="dropdown-item">光照</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">IBL</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../07%20PBR/03%20IBL/01%20Diffuse%20irradiance/" class="dropdown-item">漫反射辐照</a>
+</li>
+            
+<li>
+    <a href="../../../07%20PBR/03%20IBL/02%20Specular%20IBL/" class="dropdown-item">镜面IBL</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">实战</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../01%20Debugging/" class="dropdown-item">调试</a>
+</li>
+            
+<li>
+    <a href="../../02%20Text%20Rendering/" class="dropdown-item">文本渲染</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">2D游戏</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="./" class="dropdown-item active">Breakout</a>
+</li>
+            
+<li>
+    <a href="../02%20Setting%20up/" class="dropdown-item">准备工作</a>
+</li>
+            
+<li>
+    <a href="../03%20Rendering%20Sprites/" class="dropdown-item">渲染精灵</a>
+</li>
+            
+<li>
+    <a href="../04%20Levels/" class="dropdown-item">关卡</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">碰撞</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../05%20Collisions/01%20Ball/" class="dropdown-item">球</a>
+</li>
+            
+<li>
+    <a href="../05%20Collisions/02%20Collision%20detection/" class="dropdown-item">碰撞检测</a>
+</li>
+            
+<li>
+    <a href="../05%20Collisions/03%20Collision%20resolution/" class="dropdown-item">碰撞处理</a>
+</li>
+    </ul>
+  </li>
+            
+<li>
+    <a href="../06%20Particles/" class="dropdown-item">粒子</a>
+</li>
+            
+<li>
+    <a href="../07%20Postprocessing/" class="dropdown-item">后期处理</a>
+</li>
+            
+<li>
+    <a href="../08%20Powerups/" class="dropdown-item">道具</a>
+</li>
+            
+<li>
+    <a href="../09%20Audio/" class="dropdown-item">音效</a>
+</li>
+            
+<li>
+    <a href="../10%20Render%20Text/" class="dropdown-item">渲染文本</a>
+</li>
+            
+<li>
+    <a href="../11%20Final%20thoughts/" class="dropdown-item">结语</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../../legacy/" class="dropdown-item">历史存档</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../../code_repo/" class="nav-link">代码仓库</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../../02%20Text%20Rendering/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../02%20Setting%20up/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/LearnOpenGL-CN/LearnOpenGL-CN/edit/master/docs/06 In Practice/2D-Game/01 Breakout.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#breakout" class="nav-link">Breakout</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#opengl-breakout" class="nav-link">OpenGL Breakout</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="breakout">Breakout</h1>
+<table>
+<thead>
+<tr>
+<th>原文</th>
+<th><a href="http://www.learnopengl.com/#!In-Practice/2D-Game/Breakout">Breakout</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>作者</td>
+<td>JoeyDeVries</td>
+</tr>
+<tr>
+<td>翻译</td>
+<td>HHz(qq:1158332489)</td>
+</tr>
+<tr>
+<td>校对</td>
+<td>Krasjet</td>
+</tr>
+</tbody>
+</table>
+<p>看完前面的教程之后我们已经了解了非常多的OpenGL内部工作原理，并且我们已经能够用这些知识绘制一些复杂的图形。然而，除了之前的几个技术演示之外，我们还没有真正利用OpenGL开发一个实际应用。这篇教程为OpenGL 2D游戏制作系列教程的入门篇。这个系列教程将展示我们该如何将OpenGL应用到更大，更复杂的环境中。注意这个系列教程不一定会引入新的OpenGL概念，但会或多或少地向我们展示如何将所学的概念应用到更大的程序中去。</p>
+<p>由于我们希望事情能够简单一点，我们会以别人开发过的一个2D街机游戏为基础，开发我们自己的2D游戏。这就是<def>Breakout</def>，一个于1976年发布的运行在Atari 2600主机上的经典2D游戏。游戏要求玩家通过操控一个挡板反弹小球，以破坏所有的砖块，而不能让小球到达屏幕底端。当玩家破坏了所有砖块的时候即为完成了游戏。</p>
+<p>下面我们可以看到Breakout原本在Atari 2600上是什么样子的：</p>
+<p><img alt="" src="../../../img/06/Breakout/01/breakout2600.png" /></p>
+<p>游戏有以下几个机制：</p>
+<ul>
+<li>玩家能够控制一个小挡板，它只能在屏幕范围内左右移动。</li>
+<li>球在屏幕上运动，每一次碰撞都会使球根据碰撞位置改变运动方向。对屏幕边框，砖块，挡板都需要有碰撞判定。</li>
+<li>当球运动到屏幕底部边界的时候，游戏结束或者玩家丧失一点生命值。</li>
+<li>球碰到砖块的时候，砖块会被破坏。</li>
+<li>当所有砖块都被破坏，玩家获胜。</li>
+<li>球的方向可以通过球碰撞在挡板上的位置（即到挡板中心的距离）来操控。</li>
+</ul>
+<p>由于小球会不时通过缝隙到达砖墙的上方，它会在顶部边缘与砖块层的上边缘之间不断弹跳。小球会一直持续这种状态直到最终再次进入缝隙掉下来。这也是这个游戏名字的来源，小球必须要从缝隙中逃脱(Break out)出来。</p>
+<h1 id="opengl-breakout">OpenGL Breakout</h1>
+<p>我们将把这个经典的街机游戏作为我们之后要完全使用OpenGL实现的这个游戏的基础。这个版本的Breakout将会运行在显卡上，所以我们能够改进经典的Breakout游戏，给它加一些很棒的特性。</p>
+<p>除了以上这些经典的机制，我们的Breakout还将拥有：</p>
+<ul>
+<li>你见过最棒的画质</li>
+<li>粒子系统</li>
+<li>高级文字渲染</li>
+<li>道具</li>
+<li>后期处理特效</li>
+<li>多个（可自定义的）关卡</li>
+</ul>
+<p>为了引起大家的兴趣，你可以看看游戏完成之后的样子：</p>
+<p><img alt="" src="../../../img/06/Breakout/01/cover.png" /></p>
+<p>这些教程将会结合之前教程中的大量概念，并且会展示如何让它们以一个整体工作。所以，在你开始这个系列教程的学习之前，请至少完成<a href="../../../01%20Getting%20started/01%20OpenGL/">「入门」</a>章节。</p>
+<p>而且，有些教程会需求其它一些教程的概念（比如说在<a href="../../../04%20Advanced%20OpenGL/05%20Framebuffers/">「高级OpenGL」</a>章节中的帧缓冲），所以当必要的时候我会列出需求的教程。</p>
+<p>如果你已准备好开发这个游戏，可以开始<a href="../02%20Setting%20up/">下一节</a>的学习了。</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML" defer></script>
+        <script src="../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
